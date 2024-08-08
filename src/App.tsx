@@ -7,7 +7,11 @@ function App() {
   const [data, setData] = React.useState<Product[]>([]);
 
   const getData = async () => {
-    const fetchedData = await fetch("http://13.60.43.60:8000/products/");
+    const headers = [["Content-Type", "text/html", "extra"], ["Accept"]];
+    const fetchedData = await fetch("http://13.60.43.60:8000/products/", {
+      mode: "no-cors",
+      // headers: headers,
+    });
     const json = await fetchedData.json();
     setData(json);
   };
