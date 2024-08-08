@@ -8,10 +8,7 @@ function App() {
 
   const getData = async () => {
     const headers = [["Content-Type", "text/html", "extra"], ["Accept"]];
-    const fetchedData = await fetch("http://13.60.43.60:8000/products/", {
-      mode: "no-cors",
-      // headers: headers,
-    });
+    const fetchedData = await fetch("https://13.60.43.60:8000/products/");
     const json = await fetchedData.json();
     setData(json);
   };
