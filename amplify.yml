@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm install -g pnpm
+        - npm install -g yarn
         - pnpm i
     build:
       commands:
