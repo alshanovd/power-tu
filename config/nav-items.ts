@@ -17,11 +17,11 @@ export const siteConfig = {
       href: "/dashboard/data",
     },
     {
-      label: "Uploading",
+      label: "Upload",
       href: "/dashboard/uploading",
     },
     {
-      label: "Accounts",
+      label: "Account",
       href: "/dashboard/accounts",
     },
     {
