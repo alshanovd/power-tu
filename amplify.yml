@@ -8,7 +8,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: .next/server/app
+    baseDirectory: out
     files:
       - '**/*'
   cache:
