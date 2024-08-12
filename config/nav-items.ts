@@ -13,6 +13,10 @@ export const siteConfig = {
       href: "/dashboard/reports",
     },
     {
+      label: "Data",
+      href: "/dashboard/data",
+    },
+    {
       label: "Uploading",
       href: "/dashboard/uploading",
     },
