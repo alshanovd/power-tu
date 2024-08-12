@@ -3,7 +3,7 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import { FaUser, FaUserPlus, FaGlobe } from "react-icons/fa6";
 import Image from "next/image";
 
-import { title } from "@/components/primitives";
+import { subtitle, title } from "@/components/primitives";
 
 export default function Home() {
   return (
@@ -11,9 +11,23 @@ export default function Home() {
       <div className="inline-block max-w-lg text-center justify-center">
         <h1 className={title()}>Welcome to&nbsp;</h1>
         <h1 className={title({ color: "violet" })}>Power TU</h1>
+        <h2 className={subtitle()}>
+          Powerful and intuitive{" "}
+          <span className={subtitle({ color: "violet" })}>software</span> that
+          delivers precise insights for smarter decision-making
+        </h2>
       </div>
       <Image alt="Power TU" height={70} src="/favicon.ico" width={70} />
 
+      <div className="flex gap-3">
+        <Link
+          className={buttonStyles({ variant: "bordered", radius: "full" })}
+          href="/dashboard"
+        >
+          <FaGlobe />
+          Dashboard
+        </Link>
+      </div>
       <div className="flex gap-3">
         <Link
           className={buttonStyles({
@@ -32,15 +46,6 @@ export default function Home() {
         >
           <FaUserPlus size={17} />
           Sign Up
-        </Link>
-      </div>
-      <div className="flex gap-3">
-        <Link
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href="/dashboard"
-        >
-          <FaGlobe />
-          Dashboard
         </Link>
       </div>
     </section>
