@@ -5,15 +5,15 @@ frontend:
       commands:
         - npm install -g pnpm
         # - npm install -g yarn
-        # - pnpm i
-        - npm i
+        - pnpm i
+        # - npm i
     build:
       commands:
-        # - pnpm run build
-        - npm run build
+        - pnpm run build
+        # - npm run build
   artifacts:
-    # baseDirectory: .next
-    baseDirectory: out
+    baseDirectory: .next
+    # baseDirectory: out
     files:
       - '**/*'
   cache:
