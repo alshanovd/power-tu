@@ -10,9 +10,13 @@ frontend:
       commands:
         - pnpm run build
   artifacts:
-    baseDirectory: .next
+    baseDirectory: out
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+
+# commands:
+# aws amplify update-app --app-id dnah9h2g1p49g --platform WEB_DYNAMIC --region ap-southeast-2 
+# aws amplify update-branch --app-id dnah9h2g1p49g --branch-name main --framework 'Next.js - SSR' --region ap-southeast-2
