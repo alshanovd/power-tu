@@ -12,8 +12,8 @@ import Image from "next/image";
 
 import { ThemeSwitch } from "./theme-switch";
 
-import { siteConfig } from "@/config/site";
 import { GithubIcon } from "@/components/icons";
+import { siteConfig } from "@/config/nav-items";
 
 export const Navbar = () => {
   return (
