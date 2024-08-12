@@ -4,11 +4,13 @@ frontend:
     preBuild:
       commands:
         - npm install -g pnpm
-        - npm install -g yarn
-        - pnpm i
+        # - npm install -g yarn
+        # - pnpm i
+        - npm i
     build:
       commands:
-        - pnpm run build
+        # - pnpm run build
+        - npm run build
   artifacts:
     # baseDirectory: .next
     baseDirectory: out
