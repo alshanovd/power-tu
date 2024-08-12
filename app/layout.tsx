@@ -3,6 +3,8 @@ import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
+import { Providers } from "./providers";
+
 import { fontSans } from "@/config/fonts";
 
 export const metadata: Metadata = {
@@ -37,24 +39,24 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        {/* <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}> */}
-        <div className="relative flex flex-col h-screen">
-          {/* <Navbar /> */}
-          <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-            {children}
-          </main>
-          <footer className="w-full flex items-center justify-center py-3">
-            <Link
-              className="flex items-center gap-1 text-current"
-              href="/"
-              title="Power TU homepage"
-            >
-              <span className="text-default-600">Back to</span>
-              <p className="text-primary">Root</p>
-            </Link>
-          </footer>
-        </div>
-        {/* </Providers> */}
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <div className="relative flex flex-col h-screen">
+            {/* <Navbar /> */}
+            <main className="container mx-auto max-w-7xl px-6 flex-grow">
+              {children}
+            </main>
+            <footer className="w-full flex items-center justify-center py-3">
+              <Link
+                className="flex items-center gap-1 text-current"
+                href="/"
+                title="Power TU homepage"
+              >
+                <span className="text-default-600">Back to</span>
+                <p className="text-primary">Root</p>
+              </Link>
+            </footer>
+          </div>
+        </Providers>
       </body>
     </html>
   );
