@@ -8,7 +8,7 @@ export default function DashboardLayout({
   return (
     <>
       <Navbar />
-      <section className="flex flex-col items-center justify-center">
+      <section className="flex flex-col items-center justify-center mt-5">
         <div className="inline-block max-w-lg text-center justify-center">
           {children}
         </div>

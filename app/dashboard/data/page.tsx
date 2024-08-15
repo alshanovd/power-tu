@@ -1,5 +1,3 @@
-import { title } from "@/components/primitives";
-
 export default function DataPage() {
-  return <h1 className={title()}>Data</h1>;
+  return <h2 className="text-2xl">↑ Choose table</h2>;
 }

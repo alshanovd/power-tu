@@ -17,18 +17,17 @@ import { siteConfig } from "@/config/nav-items";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
-      <NextLink href="/">
-        <Image alt="Power TU" height={30} src="/favicon.ico" width={30} />
-      </NextLink>
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
-            <p className="font-bold text-inherit">Power TU</p>
-          </NextLink>
-        </NavbarBrand>
-      </NavbarContent>
-      <ul className="hidden lg:flex gap-4 justify-start ml-2">
+    <NextUINavbar isBordered maxWidth="xl" position="sticky">
+      <NavbarBrand>
+        <NextLink className="flex" href="/">
+          <Image alt="Power TU" height={30} src="/favicon.ico" width={30} />
+          <p className="font-bold text-inherit ml-4 flex content-center">
+            Power TU
+          </p>
+        </NextLink>
+      </NavbarBrand>
+
+      <NavbarContent className="lg:flex gap-4 basis-3/5" justify="center">
         {siteConfig.navItems.map((item) => (
           <NavbarItem key={item.href}>
             <NextLink
@@ -43,7 +42,8 @@ export const Navbar = () => {
             </NextLink>
           </NavbarItem>
         ))}
-      </ul>
+      </NavbarContent>
+
       <NavbarContent
         className="hidden sm:flex basis-1/5 sm:basis-full"
         justify="end"
