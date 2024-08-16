@@ -1,19 +1,20 @@
 import { title } from "@/components/primitives";
 import { SubNavbar, SubNavbarItem } from "@/components/sub-navbar";
 
-export default function DataLayout({
+export default function ReportsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const items: SubNavbarItem[] = [
-    { title: "Products", href: "/dashboard/data/products" },
-    { title: "Orders", href: "/dashboard/data/orders" },
+    { title: "Graph", href: "/dashboard/reports/graph" },
+    { title: "Pie Chart", href: "/dashboard/reports/pie-chart" },
+    { title: "Bar Chart", href: "/dashboard/reports/bar-chart" },
   ];
 
   return (
     <>
-      <h1 className={title()}>Raw Data</h1>
+      <h1 className={title()}>Reports</h1>
       {SubNavbar(items)}
       <div className="mt-2">{children}</div>
     </>

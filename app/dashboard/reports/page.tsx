@@ -1,5 +1,3 @@
-import { title } from "@/components/primitives";
-
 export default function ReportsPage() {
-  return <h1 className={title()}>Reports</h1>;
+  return <h2 className="text-2xl">↑ Choose report</h2>;
 }
