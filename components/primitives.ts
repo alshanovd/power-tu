@@ -1,4 +1,11 @@
+import clsx from "clsx";
 import { tv } from "tailwind-variants";
+import { link as linkStyles } from "@nextui-org/theme";
+
+export const linkStyle = clsx(
+  linkStyles({ color: "foreground" }),
+  "data-[active=true]:text-primary data-[active=true]:font-medium",
+);
 
 export const title = tv({
   base: "tracking-tight inline font-semibold",
@@ -74,3 +81,6 @@ export const subtitle = tv({
     },
   ],
 });
+
+export const violetColor =
+  "from-[#FF1CF7] to-[#b249f8] text-transparent bg-gradient-to-b bg-clip-text";

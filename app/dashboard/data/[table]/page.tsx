@@ -11,38 +11,43 @@ import {
 import useSWR from "swr";
 import { Spinner } from "@nextui-org/spinner";
 import { Chip } from "@nextui-org/chip";
+import { useEffect, useState } from "react";
 
-import { fetcher } from "@/app/tools/fetcher";
+import { apiUrl, fetcher } from "@/app/tools/fetcher";
 
-type Product = {
-  product_id: number;
-  name: string;
-  price: number;
+type Column = {
+  key: string;
+  header: string;
 };
 
 export default function RawDataPage({ params }: { params: { table: string } }) {
-  const columns = [
-    { key: "product_id", header: "Product ID" },
-    { key: "name", header: "Name" },
-    { key: "price", header: "Price" },
-  ];
-  const url = `https://ec2-3-27-170-95.ap-southeast-2.compute.amazonaws.com:8000/${params.table}`;
-  const { data, error, isLoading } = useSWR<any, Error>(url, fetcher, {
+  const url = `${apiUrl}/${params.table}`;
+  const [columns, setColumns] = useState<Column[]>([]);
+  const { data, error, isLoading } = useSWR<any[], Error>(url, fetcher, {
     refreshWhenOffline: false,
-    refreshInterval: 10000,
   });
 
+  useEffect(() => {
+    if (data?.length) {
+      const keys = Object.keys(data[0]);
+
+      setColumns(
+        keys.map((key) => ({ key, header: key.toUpperCase() }) as Column),
+      );
+    }
+  }, [data]);
+
   return (
-    (data && (
+    (data && columns.length && (
       <Table>
         <TableHeader>
-          {columns.map((column) => (
+          {columns?.map((column) => (
             <TableColumn key={column.key}>{column.header}</TableColumn>
           ))}
         </TableHeader>
         <TableBody>
-          {data?.map((row: Product) => (
-            <TableRow key={row.product_id}>
+          {data?.map((row) => (
+            <TableRow key={row[columns[0].key]}>
               {(columnKey) => (
                 <TableCell>{getKeyValue(row, columnKey)}</TableCell>
               )}

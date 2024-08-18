@@ -4,20 +4,13 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/navbar";
-import clsx from "clsx";
-import { link as linkStyles } from "@nextui-org/theme";
 
-import { title } from "@/components/primitives";
+import { linkStyle } from "./primitives";
 
 export interface SubNavbarItem {
   title: string;
   href: string;
 }
-
-export const linkStyle = clsx(
-  linkStyles({ color: "foreground" }),
-  "data-[active=true]:text-primary data-[active=true]:font-medium",
-);
 
 export function SubNavbar(items: SubNavbarItem[], vertical = false) {
   return vertical ? (

@@ -1,16 +1,14 @@
-import {
-  Navbar as NextUINavbar,
-  NavbarContent,
-  NavbarBrand,
-  NavbarItem,
-} from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
+import {
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Navbar as NextUINavbar,
+} from "@nextui-org/navbar";
 import { link as linkStyles } from "@nextui-org/theme";
-import NextLink from "next/link";
 import clsx from "clsx";
 import Image from "next/image";
-
-import { ThemeSwitch } from "./theme-switch";
+import NextLink from "next/link";
 
 import { GithubIcon } from "@/components/icons";
 import { siteConfig } from "@/config/nav-items";
