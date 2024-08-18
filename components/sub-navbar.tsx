@@ -14,22 +14,33 @@ export interface SubNavbarItem {
   href: string;
 }
 
-export function SubNavbar(items: SubNavbarItem[]) {
-  return (
+export const linkStyle = clsx(
+  linkStyles({ color: "foreground" }),
+  "data-[active=true]:text-primary data-[active=true]:font-medium",
+);
+
+export function SubNavbar(items: SubNavbarItem[], vertical = false) {
+  return vertical ? (
+    <>
+      <ul>
+        {items.map((item: SubNavbarItem) => (
+          <li key={item.title} className="py-3">
+            <NextLink className={linkStyle} href={item.href}>
+              {item.title}
+            </NextLink>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : (
     <NextUINavbar position="static">
       <NavbarContent>
         <NavbarItem />
       </NavbarContent>
       <NavbarContent justify="center">
-        {items.map((item) => (
+        {items.map((item: SubNavbarItem) => (
           <NavbarItem key={item.title}>
-            <NextLink
-              className={clsx(
-                linkStyles({ color: "foreground" }),
-                "data-[active=true]:text-primary data-[active=true]:font-medium",
-              )}
-              href={item.href}
-            >
+            <NextLink className={linkStyle} href={item.href}>
               {item.title}
             </NextLink>
           </NavbarItem>

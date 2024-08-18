@@ -22,10 +22,10 @@ const option: echarts.EChartsOption = {
   backgroundColor: "rgba(0, 0, 0, 1)",
 };
 
-export default function BarChartPage() {
+export default function TotalRevenuePage() {
   return (
     <div>
-      <h1 className="text-2xl">BarChartPage</h1>
+      {/* <h1 className="text-2xl">BarChartPage</h1> */}
 
       <ReactECharts
         className="mt-5"
