@@ -32,7 +32,7 @@ export default function ProductsSoldPage() {
   return (
     <div>
       <h2 className="text-2xl">
-        The table shows the <span className={violetColor}>total count</span> of
+        The table shows the <span className={violetColor}>Total Count</span> of
         items sold
       </h2>
       <p className="mt-3">

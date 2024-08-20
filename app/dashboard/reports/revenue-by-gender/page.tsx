@@ -24,34 +24,7 @@ export default function TotalRevenuePage() {
   const [option, setOption] = useState<echarts.EChartsOption>({});
 
   useEffect(() => {
-    let dataset: any = {};
-
-    if (data) {
-      for (const dataItem of data) {
-        if (dataItem.gender === "Male") {
-          dataset[dataItem.month] = [
-            dataItem.month,
-            dataItem.revenue,
-            dataset[dataItem.month]
-              ? dataset[dataItem.month][2]
-                ? dataset[dataItem.month][2]
-                : 0
-              : 0,
-          ];
-        }
-        if (dataItem.gender === "Female") {
-          dataset[dataItem.month] = [
-            dataItem.month,
-            dataset[dataItem.month]
-              ? dataset[dataItem.month][1]
-                ? dataset[dataItem.month][1]
-                : 0
-              : 0,
-            dataItem.revenue,
-          ];
-        }
-      }
-    }
+    let dataset: any = convertData(data);
 
     setOption({
       title: {
@@ -76,7 +49,7 @@ export default function TotalRevenuePage() {
     <div>
       <h2 className="text-2xl">
         The bar chart represents{" "}
-        <span className={violetColor}>total revenue by gender</span>
+        <span className={violetColor}>Total Revenue by Gender</span>
       </h2>
       <p className="mt-3">
         This visualization allows for a clear comparison of revenue
@@ -95,4 +68,37 @@ export default function TotalRevenuePage() {
       />
     </div>
   );
+}
+
+function convertData(data?: RevenueGender[]) {
+  const dataset: any = {};
+
+  if (data) {
+    for (const dataItem of data) {
+      if (dataItem.gender === "Male") {
+        dataset[dataItem.month] = [
+          dataItem.month,
+          dataItem.revenue,
+          dataset[dataItem.month]
+            ? dataset[dataItem.month][2]
+              ? dataset[dataItem.month][2]
+              : 0
+            : 0,
+        ];
+      }
+      if (dataItem.gender === "Female") {
+        dataset[dataItem.month] = [
+          dataItem.month,
+          dataset[dataItem.month]
+            ? dataset[dataItem.month][1]
+              ? dataset[dataItem.month][1]
+              : 0
+            : 0,
+          dataItem.revenue,
+        ];
+      }
+    }
+  }
+
+  return dataset;
 }

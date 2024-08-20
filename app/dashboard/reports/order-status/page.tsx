@@ -77,7 +77,7 @@ export default function OrderStatusPage() {
     <div>
       <h1 className="text-2xl">
         The pie chart represents{" "}
-        <span className={violetColor}>order status</span> distribution
+        <span className={violetColor}>Order Status Distribution</span>
       </h1>
       <p className="mt-3">
         This pie chart displays the overall statistics for order statuses,

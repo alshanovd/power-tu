@@ -62,7 +62,7 @@ export default function TotalRevenuePage() {
       {" "}
       <h2 className="text-2xl">
         The graph represents{" "}
-        <span className={violetColor}>total revenue by months</span>
+        <span className={violetColor}>Total Revenue by Months</span>
       </h2>
       <p className="mt-3">
         This graph displays the total revenue for each month, offering a visual

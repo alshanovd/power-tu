@@ -13,6 +13,7 @@ export function Countries({
 
   return (
     <Select
+      isDisabled
       className="max-w-xs mt-3"
       defaultSelectedKeys={[global]}
       label="Select a country"
