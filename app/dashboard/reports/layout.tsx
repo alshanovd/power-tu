@@ -14,10 +14,10 @@ const items: SubNavbarItem[] = [
     href: "/dashboard/reports/revenue-by-gender",
   },
   { title: "Total Revenue", href: "/dashboard/reports/total-revenue" },
-  { title: "Order Status Total", href: "/dashboard/reports/order-status" },
+  { title: "Order Status", href: "/dashboard/reports/order-status" },
   { title: "Products Sold", href: "/dashboard/reports/products-sold" },
   {
-    title: "Status Statistics",
+    title: "Order Status Statistics",
     href: "/dashboard/reports/status-statistics",
   },
 ];

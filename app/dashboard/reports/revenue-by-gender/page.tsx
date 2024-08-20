@@ -1,41 +1,76 @@
 "use client";
 import * as echarts from "echarts";
 import ReactECharts from "echarts-for-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 import { violetColor } from "@/components/primitives";
 import { Countries } from "@/components/select-country";
+import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
 
-const option: echarts.EChartsOption = {
-  legend: {},
-  tooltip: {},
-  dataset: {
-    source: [
-      ["product", "Male", "Female"],
-      ["Jan", 43.3, 85.8],
-      ["Feb", 83.1, 73.4],
-      ["Mar", 86.4, 65.2],
-      ["Apr", 72.4, 53.9],
-      ["May", 72.4, 53.9],
-      ["Jun", 86.4, 65.2],
-      ["Jul", 83.1, 73.4],
-      ["Aug", 43.3, 85.8],
-      ["Sep", 43.3, 85.8],
-      ["Oct", 43.3, 85.8],
-      ["Nov", 43.3, 85.8],
-      ["Dec", 43.3, 85.8],
-    ],
-  },
-  xAxis: { type: "category" },
-  yAxis: {},
-  // Declare several bar series, each will be mapped
-  // to a column of dataset.source by default.
-  series: [{ type: "bar" }, { type: "bar" }],
-  backgroundColor: "rgba(0, 0, 0, 1)",
-};
+interface RevenueGender {
+  month: string;
+  gender: "Male" | "Female";
+  revenue: number;
+}
 
 export default function TotalRevenuePage() {
   const [country, setCountry] = useState<string>("");
+  const { data, error, isLoading } = useSWR<RevenueGender[]>(
+    `${apiUrl}/annual-revenue-by-gender`,
+    fetcher,
+    SWRparams,
+  );
+  const [option, setOption] = useState<echarts.EChartsOption>({});
+
+  useEffect(() => {
+    let dataset: any = {};
+
+    if (data) {
+      for (const dataItem of data) {
+        if (dataItem.gender === "Male") {
+          dataset[dataItem.month] = [
+            dataItem.month,
+            dataItem.revenue,
+            dataset[dataItem.month]
+              ? dataset[dataItem.month][2]
+                ? dataset[dataItem.month][2]
+                : 0
+              : 0,
+          ];
+        }
+        if (dataItem.gender === "Female") {
+          dataset[dataItem.month] = [
+            dataItem.month,
+            dataset[dataItem.month]
+              ? dataset[dataItem.month][1]
+                ? dataset[dataItem.month][1]
+                : 0
+              : 0,
+            dataItem.revenue,
+          ];
+        }
+      }
+    }
+
+    setOption({
+      title: {
+        text: "Total Revenue",
+      },
+      legend: {},
+      tooltip: {},
+      dataset: {
+        source: [
+          ["product", "Male", "Female"],
+          ...Object.values<[string, number, number]>(dataset),
+        ],
+      },
+      xAxis: { type: "category" },
+      yAxis: { tooltip: { show: true } },
+      series: [{ type: "bar" }, { type: "bar" }],
+      backgroundColor: "rgba(0, 0, 0, 1)",
+    });
+  }, [data?.length]);
 
   return (
     <div>

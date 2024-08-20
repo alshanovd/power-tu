@@ -1,31 +1,61 @@
 "use client";
 import * as echarts from "echarts";
 import ReactECharts from "echarts-for-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 import { violetColor } from "@/components/primitives";
 import { Countries } from "@/components/select-country";
+import { apiUrl, fetcher, SWRparams as SWRParams } from "@/app/tools/fetcher";
+
+interface TotalRevenue {
+  month: string;
+  revenue: number;
+}
 
 export default function TotalRevenuePage() {
   const [country, setCountry] = useState<string>("");
+  const { data, error, isLoading } = useSWR<TotalRevenue[]>(
+    `${apiUrl}/annual-revenue`,
+    fetcher,
+    SWRParams,
+  );
+  const [option, setOption] = useState<echarts.EChartsOption>({});
 
-  const option: echarts.EChartsOption = {
-    legend: {},
-    xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: "line",
+  useEffect(() => {
+    setOption((opt) => ({
+      ...opt,
+      // dataZoom: [
+      //   {
+      //     type: "inside",
+      //   },
+      // ],
+      title: {
+        text: "Total Revenue by Months",
       },
-    ],
-    backgroundColor: "rgba(0, 0, 0, 1)",
-  };
+      tooltip: {
+        trigger: "axis",
+      },
+      legend: {
+        data: ["Revenue, $"],
+      },
+      xAxis: {
+        ...opt.xAxis,
+        data: data?.map((item) => item.month),
+      },
+      yAxis: {
+        type: "value",
+      },
+      series: [
+        {
+          name: "Revenue, $",
+          data: data?.map((item) => item.revenue),
+          type: "line",
+        },
+      ],
+      backgroundColor: "rgba(0, 0, 0, 1)",
+    }));
+  }, [data?.length]);
 
   return (
     <div>
