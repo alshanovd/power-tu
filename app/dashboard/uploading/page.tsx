@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Input } from "@nextui-org/input";
 
 import { title } from "@/components/primitives";
