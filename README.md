@@ -62,7 +62,7 @@ The frontend is operating with [Vercel](https://vercel.com/). When new changes a
 ### Production Frontend
 Production URL - [Power TU](https://power-tu.vercel.app/)
 
-## Brontend
+## Backend
 
 There are two AWS EC2 instances that keep our backend and database.
 Backend is operating with Python + Django and can be reached by the following url:
@@ -73,3 +73,40 @@ https://ec2-3-27-170-95.ap-southeast-2.compute.amazonaws.com:8000/
 The database chosen is MySQL and it is running on a separate EC2 instance.
 
 The code of the backend can be reached by [the link](https://github.com/alshanovd/power-tu-api).
+
+### APIs available
+
+Returns all the products of the online store
+```
+/products
+```
+
+Returns all the countries presented in the system
+```
+/countries
+```
+
+Returns all orders in the system
+```
+/orders
+```
+
+Returns the data for Annual Revenue Report
+```
+/annual-revenue
+```
+
+Returns the data for Annual Revenue By Gender Report
+```
+/annual-revenue-by-gender
+```
+
+Returns the data for Total Items Sold Report
+```
+/total-items-sold
+```
+
+Returns the data for Statuses By Month Report
+```
+/statuses-by-month
+```
