@@ -7,6 +7,7 @@ import { CountriesContext } from "@/app/tools/countries";
 import { title } from "@/components/primitives";
 import { SubNavbar, SubNavbarItem } from "@/components/sub-navbar";
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
+import AIAssistance from "@/components/ai-assistance";
 
 const items: SubNavbarItem[] = [
   {

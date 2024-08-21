@@ -14,6 +14,7 @@ import useSWR from "swr";
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
 import { violetColor } from "@/components/primitives";
 import { Countries } from "@/components/select-country";
+import AIAssistance from "@/components/ai-assistance";
 
 interface TotalItemsSold {
   id: number;
@@ -66,6 +67,9 @@ export default function ProductsSoldPage() {
             </TableBody>
           </Table>
         ))}
+      <div className="mt-5">
+        <AIAssistance />
+      </div>
     </div>
   );
 }

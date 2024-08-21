@@ -7,6 +7,7 @@ import useSWR from "swr";
 import { violetColor } from "@/components/primitives";
 import { Countries } from "@/components/select-country";
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
+import AIAssistance from "@/components/ai-assistance";
 
 interface RevenueGender {
   month: string;
@@ -66,6 +67,8 @@ export default function TotalRevenuePage() {
         option={option}
         theme="dark"
       />
+
+      <AIAssistance />
     </div>
   );
 }

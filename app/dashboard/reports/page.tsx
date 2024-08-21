@@ -1,7 +1,7 @@
 export default function ReportsPage() {
   return (
     <>
-      <h2 className="text-2xl">Welcome to the Data Analysis Dashboard!</h2>
+      <h2 className="text-2xl">Welcome to the Reports!</h2>
       <p className="my-3">
         Please select your preferred method to explore and analyze the data:
       </p>

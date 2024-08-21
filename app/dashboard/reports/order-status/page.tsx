@@ -7,6 +7,7 @@ import useSWR from "swr";
 import { violetColor } from "@/components/primitives";
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
 import { Countries } from "@/components/select-country";
+import AIAssistance from "@/components/ai-assistance";
 
 interface OrderStatusCount {
   status: string;
@@ -98,6 +99,9 @@ export default function OrderStatusPage() {
           style={{ height: "500px" }}
           theme="dark"
         />
+        <div className="mt-5">
+          <AIAssistance />
+        </div>
       </div>
     </div>
   );

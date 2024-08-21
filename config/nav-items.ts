@@ -20,14 +20,14 @@ export const siteConfig = {
       label: "Upload",
       href: "/dashboard/uploading",
     },
-    {
-      label: "Account",
-      href: "/dashboard/accounts",
-    },
-    {
-      label: "Settings",
-      href: "/dashboard/settings",
-    },
+    // {
+    //   label: "Account",
+    //   href: "/dashboard/accounts",
+    // },
+    // {
+    //   label: "Settings",
+    //   href: "/dashboard/settings",
+    // },
   ],
   links: {
     github: "https://github.com/alshanovd/power-tu",

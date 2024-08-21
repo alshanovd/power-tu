@@ -14,8 +14,10 @@ export default function DataLayout({
   return (
     <>
       <h1 className={title()}>Raw Data</h1>
-      {SubNavbar(items)}
-      <div className="mt-2">{children}</div>
+      <div className="flex w-full mt-3">
+        <div className="w-2/12">{SubNavbar(items, true)}</div>
+        <div className="w-10/12 mt-3">{children}</div>
+      </div>
     </>
   );
 }
