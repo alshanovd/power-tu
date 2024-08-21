@@ -23,7 +23,7 @@ export default function UploadingPage() {
           variant="bordered"
         />
       </div>
-      <h2 className="text-2xl font-semibold mt-3">
+      <h2 className="text-2xl font-semibold mt-8">
         Please, follow the rules for a CSV file:
       </h2>
       <ul>
