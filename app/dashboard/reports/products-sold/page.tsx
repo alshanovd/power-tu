@@ -68,7 +68,7 @@ export default function ProductsSoldPage() {
           </Table>
         ))}
       <div className="mt-5">
-        <AIAssistance />
+        <AIAssistance disabled={true} />
       </div>
     </div>
   );

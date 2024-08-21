@@ -4,12 +4,15 @@ import React, { Dispatch, SetStateAction } from "react";
 
 export default function AIAssistance({
   setShowReport,
+  disabled,
 }: {
   setShowReport?: Dispatch<SetStateAction<boolean>>;
+  disabled?: boolean;
 }): React.ReactElement {
   return (
     <Button
       className="bg-gradient-to-tr from-pink-500 to-violet-500 text-white shadow-lg"
+      isDisabled={disabled}
       radius="full"
       onClick={setShowReport ? () => setShowReport(true) : void 0}
     >

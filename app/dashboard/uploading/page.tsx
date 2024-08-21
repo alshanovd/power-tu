@@ -16,6 +16,7 @@ export default function UploadingPage() {
       <div className="mt-5 flex">
         <Input
           isClearable
+          isDisabled
           className="max-w-xs"
           label="Please, select the file"
           placeholder="File"
@@ -28,7 +29,7 @@ export default function UploadingPage() {
       </h2>
       <ul>
         <li className="text-lg mt-5 font-semibold">File Format</li>
-        <ul className="mt-2">
+        <ul className="mt-2 list-disc list-inside">
           <li>Encoding: UTF-8</li>
           <li>Delimiter: Comma `,`</li>
           <li>
@@ -46,7 +47,7 @@ export default function UploadingPage() {
         </ul>
 
         <li className="text-lg mt-5 font-semibold">Data Types</li>
-        <ul className="mt-2">
+        <ul className="mt-2 list-disc list-inside">
           <li>Integers: Numeric only, no decimals</li>
           <li>
             Strings: Enclose in double quotes if they contain commas or special
@@ -60,7 +61,7 @@ export default function UploadingPage() {
         </ul>
 
         <li className="text-lg mt-5 font-semibold">Data Integrity</li>
-        <ul className="mt-2">
+        <ul className="mt-2 list-disc list-inside">
           <li>Primary Keys: Unique and not null</li>
           <li>
             Foreign Keys: Must match existing entries in referenced tables

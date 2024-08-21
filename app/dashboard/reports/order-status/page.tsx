@@ -100,7 +100,7 @@ export default function OrderStatusPage() {
           theme="dark"
         />
         <div className="mt-5">
-          <AIAssistance />
+          <AIAssistance disabled={true} />
         </div>
       </div>
     </div>
