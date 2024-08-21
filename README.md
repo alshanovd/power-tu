@@ -1,53 +1,75 @@
-# Next.js & NextUI Template
+# Power TU - Powerful Analytical Software
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+Power TU is a robust and feature-rich analytical software designed to empower users with advanced data analysis capabilities. This README.md file provides an overview of the project and instructions for pulling and launching the project locally.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Getting Started
 
-## Technologies Used
+To get started with Power TU, follow the steps below:
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+### Prerequisites
 
-## How to Use
+- Node.js
 
-### Use the template with create-next-app
+### Installation and launching the Project
 
-To create a new project based on this template using `create-next-app`, run the following command:
+1. Clone the repository:
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
+    ```shell
+    git clone git@github.com:alshanovd/power-tu.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```shell
+    cd power-tu
+    ```
+
+3. Install the dependencies:
+
+    ```shell
+    npm install
+    ```
+
+4. Launching the Project:
+
+    ```shell
+    npm run dev
+    ```
+
+This will start the development server and you can access the application at `http://localhost:3000`.
+
+## Features
+
+Power TU offers a wide range of powerful features, including:
+
+- Advanced data visualization tools
+- Statistical analysis capabilities
+- Interactive dashboards for data exploration
+- Machine learning algorithms for predictive modeling
+- Data import and export functionality
+- User-friendly interface for easy navigation
+- Customizable charts and graphs
+- Collaborative workspace for team collaboration
+
+Please refer to the official documentation for detailed information on how to utilize these features effectively.
+
+We hope you find Power TU to be a valuable tool for your analytical needs. Happy analyzing!
+
+## CI / CD - frontend
+
+The frontend is operating with [Vercel](https://vercel.com/). When new changes are pushed in main branch, the deployment process starts.
+
+### Production Frontend
+Production URL - [Power TU](https://power-tu.vercel.app/)
+
+## Brontend
+
+There are two AWS EC2 instances that keep our backend and database.
+Backend is operating with Python + Django and can be reached by the following url:
+
 ```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
+https://ec2-3-27-170-95.ap-southeast-2.compute.amazonaws.com:8000/
 ```
+The database chosen is MySQL and it is running on a separate EC2 instance.
 
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+The code of the backend can be reached by [the link](https://github.com/alshanovd/power-tu-api).
