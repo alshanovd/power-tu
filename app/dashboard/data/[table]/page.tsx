@@ -39,22 +39,25 @@ export default function RawDataPage({ params }: { params: { table: string } }) {
 
   return (
     (data && columns.length && (
-      <Table>
-        <TableHeader>
-          {columns?.map((column) => (
-            <TableColumn key={column.key}>{column.header}</TableColumn>
-          ))}
-        </TableHeader>
-        <TableBody>
-          {data?.map((row) => (
-            <TableRow key={row[columns[0].key]}>
-              {(columnKey) => (
-                <TableCell>{getKeyValue(row, columnKey)}</TableCell>
-              )}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <div>
+        <h1 className="text-2xl uppercase">{params.table}</h1>
+        <Table className="mt-4">
+          <TableHeader>
+            {columns?.map((column) => (
+              <TableColumn key={column.key}>{column.header}</TableColumn>
+            ))}
+          </TableHeader>
+          <TableBody>
+            {data?.map((row) => (
+              <TableRow key={row[columns[0].key]}>
+                {(columnKey) => (
+                  <TableCell>{getKeyValue(row, columnKey)}</TableCell>
+                )}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     )) ||
     (isLoading && <Spinner size="lg" />) ||
     (error && (
