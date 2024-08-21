@@ -78,35 +78,35 @@ The code of the backend can be reached by [the link](https://github.com/alshanov
 
 Returns all the products of the online store
 ```
-/products
+/products/
 ```
 
 Returns all the countries presented in the system
 ```
-/countries
+/countries/
 ```
 
 Returns all orders in the system
 ```
-/orders
+/orders/
 ```
 
 Returns the data for Annual Revenue Report
 ```
-/annual-revenue
+/annual-revenue/
 ```
 
 Returns the data for Annual Revenue By Gender Report
 ```
-/annual-revenue-by-gender
+/annual-revenue-by-gender/
 ```
 
 Returns the data for Total Items Sold Report
 ```
-/total-items-sold
+/total-items-sold/
 ```
 
 Returns the data for Statuses By Month Report
 ```
-/statuses-by-month
+/statuses-by-month/
 ```
