@@ -69,7 +69,7 @@ export default function ProductsSoldPage() {
         ))}
       <div className="mt-5">
         <AIAssistance
-          disabled={true}
+          country={country}
           prompt="Why is this data important?"
           report="products-sold"
         />
