@@ -77,6 +77,7 @@ export default function TotalRevenuePage() {
       <AIAssistance
         country={country}
         prompt="What is total revenue for a year?"
+        report="total-revenue"
       />
     </div>
   );

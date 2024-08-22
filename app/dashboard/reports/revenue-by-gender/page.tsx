@@ -68,7 +68,11 @@ export default function TotalRevenuePage() {
         theme="dark"
       />
 
-      <AIAssistance country={country} prompt="Why do females spend more?" />
+      <AIAssistance
+        country={country}
+        prompt="Why do females spend more?"
+        report="revenue-by-gender"
+      />
     </div>
   );
 }

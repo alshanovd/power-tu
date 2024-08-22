@@ -17,7 +17,6 @@ interface StatusesByMonth {
 
 export default function StatusStatistics() {
   const [country, setCountry] = useState<string>(defaultCountry);
-  const [months, setMonths] = useState<string[]>([]);
   const { data, error, isLoading } = useSWR<StatusesByMonth[]>(
     `${apiUrl}/statuses-by-month/${country}/`,
     fetcher,
@@ -95,6 +94,7 @@ export default function StatusStatistics() {
         <AIAssistance
           country={country}
           prompt="Explain Cancelled status trend"
+          report="status-statistics"
         />
       </div>
     </div>

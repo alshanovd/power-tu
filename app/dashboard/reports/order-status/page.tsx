@@ -103,6 +103,7 @@ export default function OrderStatusPage() {
           <AIAssistance
             country={country}
             prompt="How to increase Completed orders?"
+            report="order-status"
           />
         </div>
       </div>

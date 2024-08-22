@@ -68,7 +68,11 @@ export default function ProductsSoldPage() {
           </Table>
         ))}
       <div className="mt-5">
-        <AIAssistance disabled={true} prompt="Why is this data important?" />
+        <AIAssistance
+          disabled={true}
+          prompt="Why is this data important?"
+          report="products-sold"
+        />
       </div>
     </div>
   );
