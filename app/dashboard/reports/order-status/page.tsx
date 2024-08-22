@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 import { violetColor } from "@/components/primitives";
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
-import { Countries } from "@/components/select-country";
+import { Countries, defaultCountry } from "@/components/select-country";
 import AIAssistance from "@/components/ai-assistance";
 
 interface OrderStatusCount {
@@ -15,9 +15,9 @@ interface OrderStatusCount {
 }
 
 export default function OrderStatusPage() {
-  const [country, setCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>(defaultCountry);
   const { data, error, isLoading } = useSWR<OrderStatusCount[]>(
-    `${apiUrl}/order-status-count`,
+    `${apiUrl}/order-status-count/${country}/`,
     fetcher,
     SWRparams,
   );
@@ -100,7 +100,10 @@ export default function OrderStatusPage() {
           theme="dark"
         />
         <div className="mt-5">
-          <AIAssistance disabled={true} />
+          <AIAssistance
+            country={country}
+            prompt="How to increase Completed orders?"
+          />
         </div>
       </div>
     </div>

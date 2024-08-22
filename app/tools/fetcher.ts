@@ -5,6 +5,14 @@ export function fetcher(...args: [RequestInfo | URL, RequestInit]) {
   return fetch(...args).then((res) => res.json());
 }
 
+export function postFetcher(body: object) {
+  return (url: string) =>
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+    }).then((res) => res.json());
+}
+
 export const SWRparams = {
   refreshWhenOffline: false,
   revalidateOnFocus: false,

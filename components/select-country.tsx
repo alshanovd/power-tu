@@ -3,6 +3,8 @@ import React, { Dispatch, SetStateAction, useContext } from "react";
 
 import { CountriesContext } from "@/app/tools/countries";
 
+export const defaultCountry = "Global";
+
 export function Countries({
   setCountry,
 }: {
@@ -13,7 +15,6 @@ export function Countries({
 
   return (
     <Select
-      // isDisabled
       className="max-w-xs mt-3"
       defaultSelectedKeys={[global]}
       label="Select a country"

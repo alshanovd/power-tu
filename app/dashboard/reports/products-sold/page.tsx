@@ -13,7 +13,7 @@ import useSWR from "swr";
 
 import { apiUrl, fetcher, SWRparams } from "@/app/tools/fetcher";
 import { violetColor } from "@/components/primitives";
-import { Countries } from "@/components/select-country";
+import { Countries, defaultCountry } from "@/components/select-country";
 import AIAssistance from "@/components/ai-assistance";
 
 interface TotalItemsSold {
@@ -23,9 +23,9 @@ interface TotalItemsSold {
 }
 
 export default function ProductsSoldPage() {
-  const [country, setCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>(defaultCountry);
   const { data, error, isLoading } = useSWR<TotalItemsSold[]>(
-    `${apiUrl}/total-items-sold`,
+    `${apiUrl}/total-items-sold/${country}/`,
     fetcher,
     SWRparams,
   );
@@ -68,7 +68,7 @@ export default function ProductsSoldPage() {
           </Table>
         ))}
       <div className="mt-5">
-        <AIAssistance disabled={true} />
+        <AIAssistance disabled={true} prompt="Why is this data important?" />
       </div>
     </div>
   );
