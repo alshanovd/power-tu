@@ -59,7 +59,11 @@ export default function RawDataPage({ params }: { params: { table: string } }) {
         </Table>
       </div>
     )) ||
-    (isLoading && <Spinner size="lg" />) ||
+    (isLoading && (
+      <div className="flex justify-center w-full">
+        <Spinner size="lg" />
+      </div>
+    )) ||
     (error && (
       <Chip color="danger" radius="sm" size="lg">
         <div className="font-bold text-xl">Error</div>
