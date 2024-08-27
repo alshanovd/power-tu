@@ -1,13 +1,12 @@
 import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
-import Image from "next/image";
-import React, { Dispatch, SetStateAction } from "react";
-import useSWR from "swr";
-import useSWRMutation from "swr/mutation";
-import { Spinner } from "@nextui-org/spinner";
 import { Chip } from "@nextui-org/chip";
+import { Input } from "@nextui-org/input";
+import { Spinner } from "@nextui-org/spinner";
+import Image from "next/image";
+import React from "react";
+import useSWRMutation from "swr/mutation";
 
-import { apiUrl, fetcher, postFetcher, SWRparams } from "@/app/tools/fetcher";
+import { apiUrl } from "@/app/tools/fetcher";
 
 interface AIAssistance {
   insights: string[];
@@ -27,7 +26,7 @@ async function sendRequest(
     arg,
   }: {
     arg: AIAssistanceRequest;
-  },
+  }
 ) {
   return fetch(url, {
     method: "POST",
@@ -47,10 +46,10 @@ export default function AIAssistance({
   disabled?: boolean;
 }): React.ReactElement {
   const [loading, setLoading] = React.useState<boolean>(false);
-  const { trigger, data, error } = useSWRMutation(
+  let { trigger, data, error } = useSWRMutation(
     `${apiUrl}/ai-assistance/`,
     sendRequest,
-    { revalidate: false },
+    { revalidate: false }
   );
 
   return (
@@ -62,6 +61,7 @@ export default function AIAssistance({
           radius="full"
           onClick={async () => {
             try {
+              data = null;
               setLoading(true);
               const result = await trigger({
                 country: country || "Global",
@@ -109,7 +109,7 @@ export default function AIAssistance({
         )) ||
         (data?.error && !loading && (
           <div className="mt-5 flex justify-center">
-            <Chip color="danger">{data?.error}</Chip>
+            <Chip color="danger">{data?.error}. Please, try again.</Chip>
           </div>
         ))}
     </div>
